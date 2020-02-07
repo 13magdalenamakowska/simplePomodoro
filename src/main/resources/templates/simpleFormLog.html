@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Helllo spring</title>
+</head>
+
+<body>
+<form method="post" th:action="@{/login}" th:object="${formLog}">
+    <label>
+        <div>
+            <input placeholder="login" th:field="*{login}" type="text">
+        </div>
+        <div th:if="${#fields.hasErrors('login')}" th:text="${#fields.errors('login')}">
+            Invalid field value
+        </div>
+    </label>
+
+    <!--    drugie pole:-->
+    <!--    <div>-->
+    <!--        <h4>numer telefonu</h4>-->
+    <!--        <input type="number" th:field="*{phone}">-->
+    <!--    </div>-->
+    <!--    <div th:if="${#fields.hasErrors('phone')}" th:text="${#fields.errors('phone')}">-->
+    <!--        Invalid field value-->
+    <!--    </div>-->
+    <label>
+        <div>
+            <input placeholder="hasło" th:field="*{password}" type="password">
+        </div>
+        <div th:if="${#fields.hasErrors('password')}" th:text="${#fields.errors('password')}">
+            Invalid field value
+        </div>
+    </label>
+
+    <label>
+        <div>
+            <input type="submit" value="Zaloguj">
+        </div>
+    </label>
+
+
+    <label>
+        <div>
+            <input type="submit" value="Nie pamiętam danych">
+        </div>
+    </label>
+
+
+</form>
+</body>
+</html>
